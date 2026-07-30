@@ -79,8 +79,8 @@ function set_suites_mysql80() {
   if [[ "$1" == "Valgrind" ]]; then
     # Unit tests, ps_protocol, ci_fs will be executed by worker 1
     echo "Setting WORKER_x_MTR_SUITES for MySQL 8.0 with Valgrind"
-    WORKER_1_MTR_SUITES="main|nobig,rpl_nogtid|nobig,innodb_undo|big,parts|nobig,funcs_2|big,gcol|nobig,binlog_gtid|big,gis|nobig,interactive_utilities"
-    WORKER_2_MTR_SUITES="innodb|big"
+    WORKER_1_MTR_SUITES="main|nobig,rpl_nogtid|nobig,innodb_undo|big,parts|nobig,funcs_2|big,gcol|nobig,binlog_gtid|big,gis|nobig,interactive_utilities,group_replication|big"
+    WORKER_2_MTR_SUITES="innodb|big,group_replication|nobig"
     WORKER_3_MTR_SUITES="rpl|big,sys_vars|nobig,binlog_nogtid|big,innodb_zip|nobig,auth_sec|big,query_rewrite_plugins,test_services,service_udf_registration,gis|big"
     WORKER_4_MTR_SUITES="main|big,perfschema|nobig,x|big,innodb_fts|big,binlog_gtid|nobig,innodb_gis|big,service_sys_var_registration,perfschema|big,information_schema"
     WORKER_5_MTR_SUITES="innodb|nobig,rpl_gtid|nobig,x|nobig,innodb_undo|nobig,innodb_fts|nobig,sysschema|nobig,gcol|big,funcs_2|nobig,connection_control,opt_trace|big"
@@ -91,8 +91,8 @@ function set_suites_mysql80() {
     # Unit tests, ps_protocol, ci_fs will be executed by worker 1
     echo "Setting WORKER_x_MTR_SUITES for MySQL 8.0 with BUILD_TYPE=RelWithDebInfo"
     WORKER_1_MTR_SUITES="rpl_gtid|nobig,sys_vars,perfschema,binlog|nobig,funcs_2,gis"
-    WORKER_2_MTR_SUITES="rpl|nobig"
-    WORKER_3_MTR_SUITES="main|nobig,collations,interactive_utilities"
+    WORKER_2_MTR_SUITES="rpl|nobig,group_replication|big"
+    WORKER_3_MTR_SUITES="main|nobig,collations,interactive_utilities,group_replication|nobig"
     WORKER_4_MTR_SUITES="rpl|big,auth_sec|nobig,sysschema,gcol,test_services,service_sys_var_registration"
     WORKER_5_MTR_SUITES="innodb|nobig,auth_sec|big,parts|nobig,rpl_gtid|big,federated,service_udf_registration"
     WORKER_6_MTR_SUITES="main|big,clone,innodb_fts,component_keyring_file,binlog_nogtid,binlog_gtid,json,secondary_engine"
@@ -102,8 +102,8 @@ function set_suites_mysql80() {
     # Unit tests, ps_protocol, ci_fs will be executed by worker 1
     echo "Setting WORKER_x_MTR_SUITES for MySQL 8.0 with BUILD_TYPE=Debug"
     WORKER_1_MTR_SUITES="clone|nobig,rpl_nogtid|nobig,rpl_gtid|big,sys_vars,auth_sec|big,binlog_nogtid|nobig,innodb_gis|nobig,funcs_2,connection_control,secondary_engine"
-    WORKER_2_MTR_SUITES="main|big"
-    WORKER_3_MTR_SUITES="main|nobig"
+    WORKER_2_MTR_SUITES="main|big,main|nobig"
+    WORKER_3_MTR_SUITES="group_replication|big,group_replication|nobig"
     WORKER_4_MTR_SUITES="innodb|nobig,innodb_fts|big,gcol|big,innodb_zip|nobig,perfschema|big"
     WORKER_5_MTR_SUITES="innodb|big,binlog|big,auth_sec|nobig,binlog_nogtid|big,sysschema|nobig,federated,information_schema,gis,interactive_utilities,service_status_var_registration,service_udf_registration"
     WORKER_6_MTR_SUITES="rpl|nobig,parts|big,binlog|nobig,component_keyring_file|nobig,parts|nobig,innodb_undo|big,encryption|big,collations,test_services,service_sys_var_registration"
